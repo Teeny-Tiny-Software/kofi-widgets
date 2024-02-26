@@ -1,18 +1,22 @@
 import sys
 
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: main.py <kofi-username>")
+def kofi_button(username):
+    return f"""
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('{username}', {{
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#323842',
+    'floating-chat.donateButton.text-color': '#fff'
+  }});
+</script>
+"""
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        username = sys.argv[1]
+        print(kofi_button(username))
+    else:
+        print("Usage: python main.py username")
         sys.exit(1)
-    
-    name = sys.argv[1]
-    
-    print(f"""<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>\n
-        <script>\n
-          kofiWidgetOverlay.draw('{name}', {\n
-            'type': 'floating-chat',\n
-            'floating-chat.donateButton.text': 'Support me',\n
-            'floating-chat.donateButton.background-color': '#323842',\n
-            'floating-chat.donateButton.text-color': '#fff'\n
-          });\n
-        </script>""")

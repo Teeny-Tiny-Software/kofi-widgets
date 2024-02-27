@@ -1,6 +1,6 @@
 import sys
 
-def kofi_button(username):
+def kofi(username):
     return f"""
 <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
@@ -13,10 +13,16 @@ def kofi_button(username):
 </script>
 """
 
+test = False
+u = "wolfthedev"
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
+    if test:
+      username = u
+      print(kofi(username))
+    elif len(sys.argv) > 1:
         username = sys.argv[1]
-        print(kofi_button(username))
+        print(kofi(username))
     else:
         print("Usage: python main.py username")
         sys.exit(1)

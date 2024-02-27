@@ -18,8 +18,7 @@ u = "wolfthedev"
 
 if __name__ == "__main__":
     if test:
-      username = u
-      print(kofi(username))
+      print(kofi(u))
     elif len(sys.argv) > 1:
         username = sys.argv[1]
         print(kofi(username))
